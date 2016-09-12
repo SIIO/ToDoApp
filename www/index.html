@@ -1,0 +1,93 @@
+<!--
+* Author: Shane Walsh
+* Assignment: WE4.1 Mobile Web Applications, Digital Skills Academy
+* Date : 2016/09/12
+* Ref: DSA Lecture & Workshop Notes UNITS 6 - 12
+* Ref: https://angularjs.org
+* Ref: http://www.w3schools.com/angular/
+* Ref: http://www.tutorialspoint.com/angularjs/
+* Ref: http://www.w3schools.com/jquerymobile/
+* Ref: http://www.w3schools.com/jquerymobile/jquerymobile_panels.asp
+* Ref: https://themeroller.jquerymobile.com
+* Ref: http://www.w3schools.com/angular/angular_intro.asp
+* Ref: https://docs.angularjs.org/guide/scope
+* Ref: https://docs.angularjs.org/api/ng/directive/ngModel
+* Ref: http://www.w3schools.com/angular/ng_ng-click.asp
+* Ref: http://www.w3schools.com/angular/ng_ng-repeat.asp
+* Ref: http://www.w3schools.com/angular/angular_events.asp
+-->
+
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+	<meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Mobile Web Applications Assingment 2: Angular JS ToDo App</title>	
+
+	<!-- Themeroller theme + relevant jQuery/jQuery Mobile CSS -->
+    <link rel="stylesheet" href="css/themes/purple.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+    <!--jQuery/jQuery Mobile JS -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- PhoneGap & Cordova JS -->
+    <script src="phonegap.js"></script>
+    <script src="cordova.js"></script>
+	</head>
+
+<!-- Set ng-app directive to Body element -->
+<body ng-app="taskModule">
+
+	<!--==== Main Page Container: Set controller directive ====-->
+	<div class="container" data-theme="b" data-role="page" data-ng-controller="toDoCtrl" style="background-image: url('img/bg_1.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;" data-theme="b">
+
+		<!--==== Header ====-->
+		<div data-role="header">
+		<!-- Embed ToDoApp icon in header-->
+		<img border="0" src="img/icon.png" alt="ToDo Logo" width="43" height="43" style="float:left;display:inline"/>
+		    <h1>To Do List</h1>
+		 </div>
+
+		 <!--==== View: Form and Output ====-->
+		<div data-role="main" class="ui-content">
+	    	<div data-theme="b" data-content-theme="b">
+	    		<!-- Binding data from input fields using ng-model directive -->
+	    		<span id="elem">Task:</span><input type="text" data-ng-model="newTask.task" />
+				<br>
+				<span id="elem">Description:</span><input type="text" data-ng-model="newDescription.description" />
+				<br>
+				<div align="center">	
+					<!--OnClick directive calls add/delete Task method in controller -->
+					<button data-inline="true" data-mini="true" data-ng-click="addTask()">Add Task</button>
+					<button data-inline="true" data-mini="true" data-ng-click="deleteTask($index)">Delete Task</button>
+				</div><br>
+				<div data-role="content" data-theme="b" class="ui-corner-all">
+					<div align="center"><img border="0" src="img/clipboard.png" alt="ToDo Logo" width="40" height="40" /></div>	
+						<ul id="elemUL">
+							<!-- Output data to View with repeat directive -->
+							<li data-ng-repeat="currentTask in toDoTasks">{{currentTask.task}} : {{currentTask.description}}</li>
+						</ul>
+					
+				</div>	
+			</div>
+		</div>
+
+		<!--==== Footer ==== -->
+		<div data-role="footer">
+		<h5>DSA 2016</h5>
+		</div>
+
+	</div><!-- End main container-->
+
+<!-- Include Angular & Module JS -->
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+</body>
+</html>
