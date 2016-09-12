@@ -1,14 +1,3 @@
-<!--
-* Author: Shane Walsh
-* Assignment: WE4.1 Mobile Web Applications, Digital Skills Academy
-* Date : 2016/09/12
-* Ref: DSA Lecture & Workshop Notes UNITS 6 - 12
-* Ref: http://docs.phonegap.com/phonegap-build/configuring/
-* Ref: https://github.com/phonegap/phonegap-start/blob/master/www/config.xml
-* Ref: https://cordova.apache.org/docs/en/latest/config_ref/
-* Ref: http://pointdeveloper.com/create-config-xml-file-phonegap-build-scratch/
--->
-
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ToDoApp</name>
